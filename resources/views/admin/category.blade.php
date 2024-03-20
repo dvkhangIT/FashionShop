@@ -34,6 +34,26 @@
                                 category</button>
                         </form>
                     </div>
+                    <table
+                        class="table table-bordered border-primary text-center mt-5 text-white ">
+                        <thead>
+                            <tr>
+                                <td>Category name</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data as $data)
+                                <tr class="table-active text-white">
+                                    <td>{{ $data->category_name }}</td>
+                                    <td><a onclick="return confirm('Are you sure to delete this')"
+                                            href="{{ url('delete_category', $data->id) }}"
+                                            class="btn btn-danger ">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
                 <!-- page-body-wrapper ends -->
             </div>
